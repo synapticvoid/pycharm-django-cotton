@@ -24,7 +24,12 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <postStartupActivity implementation="CottonProjectActivity" />
+        <postStartupActivity implementation="CottonProjectActivity"/>
+
+        <!-- Register HTML tag contributor -->
+        <xml.tagNameProvider implementation="com.djcotton.CottonTagContributor"/>
+        <!-- Reference provider for navigation to the corresponding HTML file -->
+        <psi.referenceContributor language="HTML" implementation="io.gryt.djangocotton.CottonReferenceContributor"/>
 
         <notificationGroup id="Cotton"
                            displayType="BALLOON"
